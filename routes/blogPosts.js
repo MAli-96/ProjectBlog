@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Accessed blog-posts');
-})
+router.get('../newEntry', (req, res) => {
+    res.render(".views/entries/newEntry");
+});
 
 export default router

@@ -12,11 +12,19 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 <body>
     <div class="container">
         <h1 class="mb-4">Blog Entries</h1>
-        <a href="/blogpost/new" class="btn btn-success">New Entry</a>
+        <a href="../entries/newEntry" class="btn btn-success">New Entry</a>
 
         <% blogpost.forEach(blogpost => { %>
             <div class="card mt-4">
-                <%=blogpost.title %>
+                <div class="card-body">
+                    <h4 class="card-title"><%= blogpost.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= blogpost.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div class="card-text mb-2">
+                        <%= blogpost.description %>
+                    </div>
+                </div>
             </div>
         <% }) %>
     </div>

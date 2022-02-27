@@ -10,10 +10,10 @@ app.use('/blogposts', router);
 app.get('/', (req, res) => {
     const blogpost = [{
         title: "Test Post",
-        createdAt: Date.now(),
-        description: "test description"
+        createdAt: new Date(),
+        description: "Test Description"
     }];
-    res.render('./index.ejs', { blogpost: blogpost });
+    res.render('../views/entries/index.ejs', { blogpost: blogpost });
 });
 
 const port = process.env.PORT || 3000;
