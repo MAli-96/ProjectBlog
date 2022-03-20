@@ -4,13 +4,11 @@ import mongoose from "mongoose";
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost/blog', {
-    useNewUrlParser: true, useUnifiedTopology: true
-});
+mongoose.connect('mongodb://localhost/blogpost');
 
 app.set('View engine', 'ejs');
 
-app.use('/blogposts', router);
+app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
     const blogpost = [
@@ -43,6 +41,8 @@ app.get('/entries/new', (req, res) => {
 ];
     res.render('../views/entries/new.ejs', { blogpost: blogpost });
 });
+
+app.use('/blogposts', router);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => (console.log(`listening on port ${port}...`)));
