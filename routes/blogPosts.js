@@ -1,8 +1,12 @@
 import express from "express";
 const router = express.Router();
 
-router.get('../newEntry', (req, res) => {
-    res.render(".views/entries/newEntry");
+router.get('/new', (req, res) => {
+    res.render("entries/new");
 });
+
+router.post('/', (req, res) => {
+    
+})
 
 export default router
